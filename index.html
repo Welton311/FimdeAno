@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeo em Tela Cheia</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        video {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+<video autoplay loop muted id="meuVideo">
+    <source src="TVS_EC.mp4" type="video/mp4">
+    Desculpe, seu navegador não suporta a tag de vídeo.
+</video>
+
+<script>
+    document.addEventListener('visibilitychange', function() {
+        var meuVideo = document.getElementById('meuVideo');
+
+        // Reinicia o vídeo do começo quando a página se torna visível novamente
+        if (!document.hidden) {
+            meuVideo.currentTime = 0;
+            meuVideo.play();
+        }
+    });
+</script>
+
+</body>
+</html>
